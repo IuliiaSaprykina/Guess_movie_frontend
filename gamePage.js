@@ -1,6 +1,7 @@
 const startButton = document.querySelector('.fantasy');
 const questionContainerElement = document.getElementById('question-container')
 const questionsUrl = "http://localhost:3000/questions/";
+const questions2Url = "http://localhost:3000/questions_02/";
 const usersUrl = "http://localhost:3000/users/";
 const imgContainer = document.querySelector(".movie-img");
 const choiceA = document.querySelector(".btn-a");
@@ -86,6 +87,15 @@ function displayUsersInfo(users){
 
 }
 
+function getQuestions2() {
+    return fetch(questions2Url, {
+        headers: {
+            Authorization: `bearer ${localStorage.getItem("token")}`,
+        }
+    })
+        .then(parseJSON)
+        .then(questions => displayQuestion(questions["questions"]))
+}
 
 function getQuestions() {
     return fetch(questionsUrl, {
@@ -167,6 +177,9 @@ function renderProgress(){
     const id = localStorage.user_id
     const newScore = {
         score: score
+    }
+    if (score > 40){
+        getQuestions2()
     }
     if (score > localStorage.score) {
         localStorage.setItem("score", score)
