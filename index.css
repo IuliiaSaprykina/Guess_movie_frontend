@@ -14,37 +14,31 @@ $button-background-color: #27AE60;
   padding: 0;
 }
 
-html { 
+body { 
   background: url(https://www.business-vector.info/wp-content/uploads/2019/04/kino.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
-body {
-  background: transparent;
-}
-
-body, input, button {
+/* body, input, button {
   font-family: 'Montserrat';
-}
+} */
 
-button{
+/* button{
   margin-top: 5px;
   text-transform: uppercase;
-}
+} */
 
 .input-group-addon:first-child {
   width: 48px;
 }
 
 input, button{
-  /* margin: 10px; */
   color: #1d1b1b;
   border: 1px solid white;
   padding: 10px 40px;
-  /* text-transform: uppercase; */
   letter-spacing: 4px;
   position: relative;
   background-color: #b2daea;
@@ -52,7 +46,7 @@ input, button{
   width: 370px;
 }
 
-@mixin normalize-input {
+/* @mixin normalize-input {
   display: block;
   width: auto;
   height: auto;
@@ -61,11 +55,11 @@ input, button{
   box-shadow: none;
   background: none;
   border-radius: 0px;
-}
+} */
 
-.input-group .form-control:last-child{
+/* .input-group .form-control:last-child{
   width: 322px;
-}
+} */
 
 .login {
   padding: 15px;
@@ -73,26 +67,14 @@ input, button{
   min-height: 400px;
   margin: 2% 20% 0 auto;
   text-align: center;
-
-
-.heading {
-    text-align: center;
-    margin-top: 1%;
-}
 }
 
 .new-user-form {
-    padding: 15px;
-    width: 400px;
-    min-height: 400px;
-    margin: 2% 20% 0 auto;
-    text-align: center;
-  
-  
-  .heading {
-      text-align: center;
-      margin-top: 1%;
-  }
+  padding: 15px;
+  width: 400px;
+  min-height: 400px;
+  margin: 2% 20% 0 auto;
+  text-align: center;
 }
 
 h1{
@@ -108,7 +90,6 @@ h1{
   font-size: 30px;
   color: #fff6f6;
   padding: 10px 40px;
-  /* text-transform: uppercase; */
   letter-spacing: 4px;
   position: relative;
   margin: 5px;
@@ -119,7 +100,6 @@ h1{
   font-size: 30px;
   color: #fff6f6;
   padding: 10px 40px;
-  /* text-transform: uppercase; */
   letter-spacing: 4px;
   position: relative;
   margin: 5px;
@@ -188,20 +168,20 @@ input.form-control {
 }
 
 
-.float:hover, .float:focus, .float:active {
+/* .float:hover, .float:focus, .float:active {
   -webkit-transform: translateY(-3px);
   transform: translateY(-3px);
-}
+} */
 
-.new-user-form:hover, .new-user-form:focus, .new-user-form:active {
+/* .new-user-form:hover, .new-user-form:focus, .new-user-form:active {
     -webkit-transform: translateY(-3px);
     transform: translateY(-3px);
-}
+} */
 
-.login-button.hover, .login-button:focus, .login-button:active {
+/* .login-button.hover, .login-button:focus, .login-button:active {
     -webkit-transform: translateY(-3px);
     transform: translateY(-3px);
-  }
+  } */
 
 /* Large Devices, Wide Screens */
 
