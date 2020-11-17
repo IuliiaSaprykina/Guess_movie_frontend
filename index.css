@@ -1,18 +1,8 @@
-@import "bourbon";
+/* @import "bourbon"; */
 
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
+/* @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700); */
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
-
-$shadow-color: #23203b;
-$input-color: lighten(#AB9E95, 10%);
-$input-border-color: #5E5165;
-$button-background-color: #27AE60;
-
-* {
-  margin: 0;
-  padding: 0;
-}
 
 body { 
   background: url(https://www.business-vector.info/wp-content/uploads/2019/04/kino.jpg) no-repeat center center fixed; 
@@ -22,228 +12,33 @@ body {
   background-size: cover;
 }
 
-/* body, input, button {
-  font-family: 'Montserrat';
-} */
-
-/* button{
-  margin-top: 5px;
-  text-transform: uppercase;
-} */
-
-.input-group-addon:first-child {
-  width: 48px;
-}
-
-input, button{
-  color: #1d1b1b;
-  border: 1px solid white;
-  padding: 10px 40px;
-  letter-spacing: 4px;
-  position: relative;
-  background-color: #b2daea;
-  border-radius: 5px;
-  width: 370px;
-}
-
-/* @mixin normalize-input {
-  display: block;
-  width: auto;
-  height: auto;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  background: none;
-  border-radius: 0px;
-} */
-
-/* .input-group .form-control:last-child{
-  width: 322px;
-} */
-
-.login {
-  padding: 15px;
-  width: 400px;
-  min-height: 400px;
-  margin: 2% 20% 0 auto;
-  text-align: center;
-}
-
-.new-user-form {
-  padding: 15px;
-  width: 400px;
-  min-height: 400px;
-  margin: 2% 20% 0 auto;
-  text-align: center;
-}
-
 h1{
-  text-transform: uppercase;
-  text-align: center;
-  position: relative;
-	color: #fff;
+  position: initial;
+    top: 50%; 
+    right: 50%;
+    /* transform: translate(50%,-50%); */
+    text-transform: uppercase;
+    font-family: verdana;
+    font-size: 12em;
+    font-weight: 700;
+    color: #cfc6d5;
+    text-shadow: 1px 1px 1px #1e1614,
+        1px 2px 1px #cfccd9,
+        1px 3px 1px #6abcda,
+        1px 4px 1px #01415c,
+        1px 5px 1px #0e2d3c,
+        1px 6px 1px #2b5f77,
+        1px 7px 1px #2b5f77,
+        1px 8px 1px #2b5f77,
+        1px 9px 1px #2b5f77,
+        1px 10px 1px #112e3e,
+    1px 18px 6px rgba(139,151,175,1),
+    1px 22px 10px rgba(52,31,21,1),
+    1px 25px 35px rgba(16,16,16,0.2),
+    1px 30px 60px rgba(16,16,16,0.4);
+}
+  /* text-transform: uppercase;
+  color: #1b0e09;
 	font: 900 60px Montserrat;
-	text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.login-error{
-  font-size: 30px;
-  color: #fff6f6;
-  padding: 10px 40px;
-  letter-spacing: 4px;
-  position: relative;
-  margin: 5px;
-  text-transform: uppercase;
-}
-
-.user-error{
-  font-size: 30px;
-  color: #fff6f6;
-  padding: 10px 40px;
-  letter-spacing: 4px;
-  position: relative;
-  margin: 5px;
-  text-transform: uppercase;
-}
-
-
-
-h2 {
-  font-size: 3em;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  display: inline-block;
-  padding-bottom: 5px;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  position: relative;
-}
-
-form {
-    .input-group {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-      &:last-of-type {
-        border-top: none;
-      }
-
-      span {
-        background: transparent;
-        min-width: 53px;
-        border: none;
-
-        i {
-          font-size: 1.5em;
-          color: rgba(255, 255, 255, 0.2);
-    }
-    }
-}
-
-input.form-control {
-    @include normalize-input;
-
-    padding: 10px;
-    font-size: 1.6em;
-    width: 100%;
-    background: transparent;
-    color: $input-color;
-    
-
-    &:focus {
-        border: none;
-    }
-}
-
-
-.create-new-user{
-    display: inline-block;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-
-
-/* .float:hover, .float:focus, .float:active {
-  -webkit-transform: translateY(-3px);
-  transform: translateY(-3px);
+	text-shadow: 0 10px 25px rgb(220 194 194); 
 } */
-
-/* .new-user-form:hover, .new-user-form:focus, .new-user-form:active {
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
-} */
-
-/* .login-button.hover, .login-button:focus, .login-button:active {
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
-  } */
-
-/* Large Devices, Wide Screens */
-
-@media only screen and (max-width : 1500px) {
-}
-
-@media only screen and (max-width : 1200px) {
-  .login {
-    width: 600px;
-    font-size: 2em;
-  }
-}
-
-@media only screen and (max-width : 1100px) {
-  .login {
-    margin-top: 2%;
-    width: 600px;
-    font-size: 1.7em;
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-  .login {
-    margin-top: 1%;
-    width: 550px;
-    font-size: 1.7em;
-    min-height: 0;
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-  .login {
-    margin-top: 0;
-    width: 500px;
-    font-size: 1.3em;
-    min-height: 0;
-  }
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
-  .login {
-
-    h2 {
-      margin-top: 0;
-    }
-
-    margin-top: 0;
-    width: 400px;
-    font-size: 1em;
-    min-height: 0;
-  }
-}
-
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-  .login {
-    margin-top: 0;
-    width: 200px;
-    font-size: 0.7em;
-    min-height: 0;
-  }
-}
