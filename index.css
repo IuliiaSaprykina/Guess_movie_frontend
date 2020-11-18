@@ -37,8 +37,50 @@ h1{
     1px 25px 35px rgba(16,16,16,0.2),
     1px 30px 60px rgba(16,16,16,0.4);
 }
-  /* text-transform: uppercase;
-  color: #1b0e09;
-	font: 900 60px Montserrat;
-	text-shadow: 0 10px 25px rgb(220 194 194); 
-} */
+
+body, input, button {
+  font-family: 'Montserrat';
+}
+
+.form-control{
+  font-size: 48px;
+}
+
+input {
+  min-width: 302px;
+  letter-spacing: 4px;
+}
+
+.input-group-addon{
+  padding: 12px 12px;
+  font-size: 18px;
+  width: 48px;
+  height: 48px;
+}
+
+button{
+  font-size: 2rem;
+  border: 1px solid white;
+  padding: 10px 40px;
+  letter-spacing: 4px;
+  background-color: #b2daea;
+  border-radius: 5px;
+  min-width: 350px;
+  margin: 5%;
+}
+
+.login{
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.new-user-form{
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left: auto;
+}
