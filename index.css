@@ -5,6 +5,7 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
 
 body { 
+  /* background-image: url('Index_bg.jpg'); */
   background: url(https://www.business-vector.info/wp-content/uploads/2019/04/kino.jpg) no-repeat center center fixed; 
   height: 100%;
   background-position: center;
@@ -72,15 +73,44 @@ button{
 .login{
   padding-right: 30px;
   padding-left: 30px;
-  margin-top: 10%;
+  margin-top: 20%;
   margin-right: auto;
   margin-left: auto;
+}
+
+.float, .submit-new-user{
+  margin-top: 5%
+}
+
+.play-button{
+  min-width: 350px;
+  display: block;
 }
 
 .new-user-form{
   padding-right: 30px;
   padding-left: 30px;
-  margin-top: 10%;
+  margin-top: 20%;
   margin-right: auto;
   margin-left: auto;
+}
+
+.login-error{
+  font-size: 30px;
+  color: #fff6f6;
+  padding: 10px 40px;
+  letter-spacing: 4px;
+  position: relative;
+  margin: 5px;
+  text-transform: uppercase;
+}
+
+.user-error{
+  font-size: 30px;
+  color: #fff6f6;
+  padding: 10px 40px;
+  letter-spacing: 4px;
+  position: relative;
+  margin: 5px;
+  text-transform: uppercase;
 }

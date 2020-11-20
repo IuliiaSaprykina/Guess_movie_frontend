@@ -1,0 +1,87 @@
+body { 
+    background: url('page_game_bg_03.png')no-repeat center center fixed;;
+    /* background: url(https://images.unsplash.com/photo-1481923387198-050ac1a2896e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2166&q=80) no-repeat center center fixed;  */
+    /* background: url(https://c4.wallpaperflare.com/wallpaper/779/691/639/technology-movies-projector-8mm-film-reel-wallpaper-preview.jpg) no-repeat center center fixed;  */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+:root {
+    --hue-neutral: 2001;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+.movie-img img{
+    background-color: #4b78718c;
+    /* margin-top: 40px; */
+    min-width: 350px;
+    max-height: auto;
+    max-width: 60%;
+    /* max-width: 80%; */
+    border-radius: 5px;
+    padding: 10px;
+}
+.movie-img{
+    text-align: center;
+    display: block;
+}
+
+.btn-a, .btn-b, .btn-c, .btn-d{
+    color: #1d1b1b;
+    border: 1px solid white;
+    padding: 3% 3%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #4b7a72fa;
+    border-radius: 5px;
+}
+
+.btn-grid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.hide{
+    display: none;
+}
+
+#countdown{
+}
+
+.dop-buttons{
+    position: absolute;
+    left: 0;
+    top: 10%;
+    
+}
+
+#progress{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    color: white;
+}
+
+.score-container{
+    margin-left: 30px;
+    margin-top: -200px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    color: white;
+    font-size: x-large;
+
+}
+
+#timer{
+    color: white;
+}
