@@ -2,6 +2,8 @@ const startButton = document.querySelector('.fantasy');
 const questionContainerElement = document.getElementById('question-container')
 const questionsUrl = "http://localhost:3000/questions/";
 const questions2Url = "http://localhost:3000/questions_02/";
+const questionsUrlFree = "http://localhost:3000/questions_free/";
+const questionsUrlFree_02 = "http://localhost:3000/questions_free_02/";
 const usersUrl = "http://localhost:3000/users/";
 const imgContainer = document.querySelector(".movie-img");
 const choiceA = document.querySelector(".btn-a");
@@ -12,7 +14,8 @@ const progress = document.querySelector("#progress");
 const qImg = document.createElement("img");
 const answerButtons = document.getElementById("answer-buttons");
 const championList = document.querySelector('.score-container ol');
-const logOutButton = document.querySelector(".log-out")
+const logOutButton = document.querySelector(".log-out");
+const mainMenu = document.querySelector(".main-page");
 const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
 let runningQuestionT = 0;
@@ -40,7 +43,7 @@ function timerStart() {
     }
 }
 
-isLogIn()
+// isLogIn()
 
 
 function isLogIn() {
@@ -51,18 +54,27 @@ function isLogIn() {
 
 function logOut() {
     localStorage.clear();
-    location.reload();
+    isLogIn()
 }
 
-
+mainMenu.addEventListener('click', function(){
+    window.location.href = "index.html"
+});
 startButton.addEventListener('click', handleClick);
 logOutButton.addEventListener('click', logOut)
 
 
 function handleClick(){
-    getQuestions();
-    startGame();
-    timerStart()
+    if (localStorage.token === undefined ) {
+        getQuestions_free();
+        startGame();
+        timerStart()
+    } else {
+        getQuestions();
+        startGame();
+        timerStart()
+        
+    }
 }
 
 getScoreInfo()
@@ -74,7 +86,6 @@ function getScoreInfo () {
 }
 
 function displayUsersInfo(users){
-    console.log(users)
     users.sort((a, b) => {
         return b.score - a.score
     })
@@ -84,8 +95,22 @@ function displayUsersInfo(users){
         
         championList.appendChild(usersScore)
     })
+    championList.style.display = 'none'
 
 }
+
+function getQuestions_free() {
+    return fetch(questionsUrlFree)
+        .then(parseJSON)
+        .then(questions => displayQuestion(questions["question"]))
+}
+
+function getQuestions_free_02() {
+    return fetch(questionsUrlFree_02)
+        .then(parseJSON)
+        .then(questions => displayQuestion(questions["question"]))
+}
+
 
 function getQuestions2() {
     return fetch(questions2Url, {
@@ -128,7 +153,7 @@ function displayQuestion(questions) {
 function startGame() {
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
-    progress.textContent = localStorage.username + ", your score is " + score
+    progress.textContent = "Your score is " + score
 }
 
 function renderQuestion(questions, runningQuestion){
@@ -172,14 +197,18 @@ function answerIsWrong() {
 
 function renderProgress(){
     score++
-    progress.textContent = localStorage.username + ", your score is " + score
+    progress.textContent = "Your score is " + score
 
     const id = localStorage.user_id
     const newScore = {
         score: score
     }
     if (score > 40){
-        getQuestions2()
+        if (localStorage.token === undefined ){
+            getQuestions_free_02()
+        } else {
+            getQuestions2()
+        }
     }
     if (score > localStorage.score) {
         localStorage.setItem("score", score)
