@@ -15,7 +15,7 @@ body {
     --hue-correct: 145;
 }
 .movie-img img{
-    background-color: #4b78718c;
+    background-color: #edeaeded;
     /* margin-top: 40px; */
     min-width: 350px;
     max-height: auto;
@@ -38,7 +38,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background-color: #4b7a72fa;
+    background-color: #edeaeded;
     border-radius: 5px;
 }
 
@@ -53,8 +53,6 @@ body {
     display: none;
 }
 
-#countdown{
-}
 
 .dop-buttons{
     position: absolute;
@@ -82,6 +80,12 @@ body {
 
 }
 
-#timer{
+.time-container{
+    display: grid;
+}
+
+#countdown{
+    position: relative;
+    text-align: center;
     color: white;
 }
