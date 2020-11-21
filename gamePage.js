@@ -16,6 +16,7 @@ const answerButtons = document.getElementById("answer-buttons");
 const championList = document.querySelector('.score-container ol');
 const logOutButton = document.querySelector(".log-out");
 const mainMenu = document.querySelector(".main-page");
+const buttons = document.querySelector('#buttons')
 const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
 let runningQuestionT = 0;
@@ -23,6 +24,7 @@ let score = 0;
 let q = "";
 let questionsT = [];
 let time = startingMinutes * 60;
+
 
 function timerStart() {
     setInterval(timer, 1000)
@@ -65,6 +67,7 @@ logOutButton.addEventListener('click', logOut)
 
 
 function handleClick(){
+    buttons.style.display = 'none'
     if (localStorage.token === undefined ) {
         getQuestions_free();
         startGame();

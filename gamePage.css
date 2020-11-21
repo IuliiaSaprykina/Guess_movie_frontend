@@ -15,7 +15,7 @@ body {
     --hue-correct: 145;
 }
 .movie-img img{
-    background-color: #edeaeded;
+    background-color: #b2daea;
     /* margin-top: 40px; */
     min-width: 350px;
     max-height: auto;
@@ -38,7 +38,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    background-color: #edeaeded;
+    background-color: #b2daea;
     border-radius: 5px;
 }
 
@@ -62,6 +62,7 @@ body {
 }
 
 #progress{
+    margin-top: 10%;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -80,12 +81,36 @@ body {
 
 }
 
+/* #timer{
+    margin-left: 10%;
+} */
+
+
+
 .time-container{
-    display: grid;
+    margin-left: 10%;
+    display: flex;
+    list-style-type: none;
+    flex-flow: row wrap;
 }
 
 #countdown{
     position: relative;
     text-align: center;
     color: white;
+}
+
+#buttons button{
+    font-size: 1.5rem;
+    border: 1px solid white;
+    padding: 10px 40px;
+    letter-spacing: 4px;
+    background-color: #b2daea;
+    border-radius: 5px;
+    width: 200px;
+    margin: 5%;
+  }
+
+#buttons{
+    margin-top: 10%;
 }
