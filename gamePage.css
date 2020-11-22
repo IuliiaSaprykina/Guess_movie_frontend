@@ -8,19 +8,17 @@ body {
     background-size: cover;
   }
 
-
 :root {
     --hue-neutral: 2001;
     --hue-wrong: 0;
     --hue-correct: 145;
 }
 .movie-img img{
+    margin-top: 5%;
     background-color: #b2daea;
-    /* margin-top: 40px; */
     min-width: 350px;
     max-height: auto;
     max-width: 60%;
-    /* max-width: 80%; */
     border-radius: 5px;
     padding: 10px;
 }
@@ -61,8 +59,20 @@ body {
     
 }
 
+#progress-container{
+    position: fixed;
+    left: 50%;
+}
+
+#countdown{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    border-radius: 5px;
+    color: white;
+}
+
 #progress{
-    margin-top: 10%;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -79,25 +89,6 @@ body {
     color: white;
     font-size: x-large;
 
-}
-
-/* #timer{
-    margin-left: 10%;
-} */
-
-
-
-.time-container{
-    margin-left: 10%;
-    display: flex;
-    list-style-type: none;
-    flex-flow: row wrap;
-}
-
-#countdown{
-    position: relative;
-    text-align: center;
-    color: white;
 }
 
 #buttons button{
