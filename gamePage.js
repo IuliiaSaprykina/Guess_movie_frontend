@@ -1,4 +1,5 @@
 const startButton = document.querySelector('.fantasy');
+const fihishContainer = document.querySelector('.finish-container')
 const questionContainerElement = document.getElementById('question-container')
 const questionsUrl = "http://localhost:3000/questions/";
 const questions2Url = "http://localhost:3000/questions_02/";
@@ -16,7 +17,8 @@ const answerButtons = document.getElementById("answer-buttons");
 const championList = document.querySelector('.score-container ol');
 const logOutButton = document.querySelector(".log-out");
 const mainMenu = document.querySelector(".main-page");
-const buttons = document.querySelector('#buttons')
+const buttons = document.querySelector('#buttons');
+const progressContainer = document.querySelector('#progress-container')
 const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
 let runningQuestionT = 0;
@@ -24,7 +26,6 @@ let score = 0;
 let q = "";
 let questionsT = [];
 let time = startingMinutes * 60;
-
 
 function timerStart() {
     setInterval(timer, 1000)
@@ -195,6 +196,10 @@ function checkAnswer(event, q, questions, runningQuestion){
 function answerIsWrong() {
     startButton.classList.remove('hide');
     questionContainerElement.classList.add('hide');
+    championList.style.display = 'block'
+    buttons.style.display = 'block'
+    progressContainer.style.display = 'hide'
+    progress.textContent = "Your score is " + score
     location.reload();
 }
 
