@@ -18,7 +18,6 @@ const championList = document.querySelector('.score-container ol');
 const logOutButton = document.querySelector(".log-out");
 const mainMenu = document.querySelector(".main-page");
 const buttons = document.querySelector('#buttons');
-const progressContainer = document.querySelector('#progress-container')
 const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
 let runningQuestionT = 0;
@@ -194,11 +193,10 @@ function checkAnswer(event, q, questions, runningQuestion){
 }
 
 function answerIsWrong() {
-    startButton.classList.remove('hide');
+    // startButton.classList.remove('hide');
     questionContainerElement.classList.add('hide');
     championList.style.display = 'block'
     buttons.style.display = 'block'
-    progressContainer.style.display = 'hide'
     progress.textContent = "Your score is " + score
     location.reload();
 }
