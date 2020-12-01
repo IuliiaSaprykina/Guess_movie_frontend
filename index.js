@@ -7,6 +7,7 @@ const inputNewUserForm = document.querySelector('.new-user-form input');
 const createNewUserButton = document.querySelector(".create-new-user-button");
 const loginButton = document.querySelector(".login-button");
 const playButton = document.querySelector(".play-button")
+const playButton1 = document.querySelector(".play-button1")
     
 const usersUrl = "http://localhost:3000/users/";
 const loginUrl = "http://localhost:3000/login/";
@@ -21,6 +22,10 @@ function welcome(){
 createNewUserButton.addEventListener('click', displayNewUserMenu)
 loginButton.addEventListener('click', displayLoginMenu)
 playButton.addEventListener('click', function(e){
+    e.preventDefault();
+    window.location.href = "gamePage.html"
+})
+playButton1.addEventListener('click', function(e){
     e.preventDefault();
     window.location.href = "gamePage.html"
 })

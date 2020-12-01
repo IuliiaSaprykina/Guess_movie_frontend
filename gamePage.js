@@ -1,4 +1,4 @@
-const startButton = document.querySelector('.fantasy');
+const startButton = document.querySelector('#fantasy');
 const fihishContainer = document.querySelector('#finish-container')
 const questionContainerElement = document.getElementById('question-container')
 const questionsUrl = "http://localhost:3000/questions/";
@@ -15,10 +15,11 @@ const progress = document.querySelector("#progress");
 const qImg = document.createElement("img");
 const answerButtons = document.getElementById("answer-buttons");
 const championList = document.querySelector('#score-container ol');
-const logOutButton = document.querySelector(".log-out");
-const mainMenu = document.querySelector(".main-page");
+// const logOutButton = document.querySelector("#log-out");
+const mainMenu = document.querySelector("#main-page");
 const buttons = document.querySelector('#buttons');
 const progressContainer = document.querySelector('#progress-container');
+const yourScore = document.querySelector('.your-score')
 const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
 let runningQuestionT = 0;
@@ -66,10 +67,11 @@ mainMenu.addEventListener('click', function(){
     window.location.href = "index.html"
 });
 startButton.addEventListener('click', handleClick);
-logOutButton.addEventListener('click', logOut)
+mainMenu.addEventListener('click', logOut)
 
 
 function handleClick(){
+    // console.log(buttons)
     buttons.style.display = 'none'
     if (localStorage.token === undefined ) {
         getQuestions_free();
@@ -92,6 +94,7 @@ function getScoreInfo () {
 }
 
 function displayUsersInfo(users){
+    const usersOl = document.createElement('ol')
     users.sort((a, b) => {
         return b.score - a.score
     })
@@ -200,7 +203,9 @@ function answerIsWrong() {
     questionContainerElement.classList.add('hide');
     document.querySelector("#progress").style.display = 'none'
     document.querySelector("#countdown").style.display = 'none'
-    buttons.style.display = 'block'
+    buttons.style.display = 'block';
+    yourScore.textContent = "Congrats! Your score is:" + score
+    // console.log(score)
     getScoreInfo()
     // championList.style.display = 'block'
     // fihishContainer.classList.remove('hide');
