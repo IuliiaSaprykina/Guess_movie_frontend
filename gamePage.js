@@ -94,15 +94,23 @@ function getScoreInfo () {
 }
 
 function displayUsersInfo(users){
+    let i = 0
     const usersOl = document.createElement('ol')
+    const buttonMore = document.createElement('button')
+    buttonMore.textContent = "More champions"
+    // console.log(buttonMore)
+    document.querySelector('#score-container').append(buttonMore)
+            
     users.sort((a, b) => {
         return b.score - a.score
     })
     users.map(user => {
-        const usersScore = document.createElement('li')
-        usersScore.textContent = user.username + ": " + user.score
-        
-        championList.appendChild(usersScore)
+        if (i < 10) {
+            const usersScore = document.createElement('li')
+            usersScore.textContent = user.username + ": " + user.score
+            championList.appendChild(usersScore)
+            i++;
+        } 
     })
     // championList.style.display = 'none'
 
@@ -199,16 +207,16 @@ function checkAnswer(event, q, questions, runningQuestion){
 }
 
 function answerIsWrong() {
-    startButton.classList.remove('hide');
+    // startButton.classList.remove('hide');
     questionContainerElement.classList.add('hide');
     document.querySelector("#progress").style.display = 'none'
     document.querySelector("#countdown").style.display = 'none'
-    buttons.style.display = 'block';
+    // buttons.style.display = 'block';
     yourScore.textContent = "Congrats! Your score is:" + score
+    fihishContainer.classList.remove('hide');
     // console.log(score)
     getScoreInfo()
     // championList.style.display = 'block'
-    // fihishContainer.classList.remove('hide');
     // fihishContainer.classList.remove('hide');
     // location.reload();
 }
