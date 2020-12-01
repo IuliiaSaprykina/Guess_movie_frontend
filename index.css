@@ -87,6 +87,12 @@ button{
   display: block;
 }
 
+.play-button1{
+  min-width: 350px;
+  display: block;
+}
+
+
 .new-user-form{
   padding-right: 30px;
   padding-left: 30px;

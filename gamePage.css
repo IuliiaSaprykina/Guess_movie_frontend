@@ -97,5 +97,23 @@ body {
   }
 
 #buttons{
-    margin-top: 10%;
+    display: flex;
+    list-style-type: none;
+    flex-flow: row wrap;
+    width: 100%;
+    /* margin: 0 auto; */
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+.your-score{
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: white;
+}
+
+ol{
+    color: white;
 }
