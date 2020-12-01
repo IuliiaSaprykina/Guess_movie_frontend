@@ -114,6 +114,10 @@ body {
     color: white;
 }
 
-ol{
+
+#score-container{
     color: white;
+    display: inline;
+    margin: auto;
+    display: inline-table;
 }
