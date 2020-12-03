@@ -93,27 +93,40 @@ function getScoreInfo () {
     .then(users => displayUsersInfo(users["user"]))
 }
 
-function displayUsersInfo(users){
-    let i = 0
-    const usersOl = document.createElement('ol')
-    const buttonMore = document.createElement('button')
-    buttonMore.textContent = "More champions"
-    // console.log(buttonMore)
-    document.querySelector('#score-container').append(buttonMore)
-            
+function displayAllUsersInfo(users){
     users.sort((a, b) => {
         return b.score - a.score
     })
+
     users.map(user => {
-        if (i < 10) {
+        const usersScore = document.createElement('li')
+        usersScore.textContent = user.username + ": " + user.score
+        championList.appendChild(usersScore)
+    })
+}
+
+function displayUsersInfo(users){
+    let size = 10
+    const buttonMore = document.createElement('button')
+    buttonMore.textContent = "More champions"
+    document.querySelector('#score-container').append(buttonMore)
+    users.sort((a, b) => {
+        return b.score - a.score
+    })
+    let cutUsers = users.slice(0, size)
+
+    cutUsers.map(user => {
+        const usersScore = document.createElement('li')
+        usersScore.textContent = user.username + ": " + user.score
+        championList.appendChild(usersScore)
+    })
+    buttonMore.addEventListener('click', function() {
+        users.map(user => {
             const usersScore = document.createElement('li')
             usersScore.textContent = user.username + ": " + user.score
             championList.appendChild(usersScore)
-            i++;
-        } 
+        })
     })
-    // championList.style.display = 'none'
-
 }
 
 function getQuestions_free() {
@@ -177,7 +190,6 @@ function renderQuestion(questions, runningQuestion){
     runningQuestionT = runningQuestion;
     questionsT = questions;
     q = questions[runningQuestion];
-    console.log(q)
     qImg.removeAttribute('src');
     choiceA.textContent = "";
     choiceB.textContent = "";
