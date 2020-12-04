@@ -59,12 +59,13 @@ body {
     
 }
 
-/* #progress-container{
-    position: fixed;
-    left: 50%;
-} */
+#progress-container{
+    margin-top: 5%;
+    margin-left: 5%;
+}
 
 #countdown{
+    font-size: 1.5rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -73,6 +74,7 @@ body {
 }
 
 #progress{
+    font-size: 1.5rem;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -80,10 +82,10 @@ body {
     color: white;
 }
 
-/* .container {
-    display: flex;
-
-} */
+#buttons {
+    margin-top: 30%;
+    text-align: center;
+}
 
 #buttons button{
     font-size: 1.5rem;
@@ -92,16 +94,13 @@ body {
     letter-spacing: 4px;
     background-color: #b2daea;
     border-radius: 5px;
-    width: 200px;
     margin: 5%;
   }
 
 #buttons{
-    /* display: flex; */
     list-style-type: none;
     flex-flow: row wrap;
     width: 100%;
-    /* margin: 0 auto; */
     justify-content: space-between;
     padding-left: 0;
 }
@@ -116,9 +115,12 @@ body {
 
 
 #score-container{
+    background-color: #1d1b1ed1;
+    padding: 5px;
     color: white;
     display: inline;
     margin: auto;
+    border-radius: 10px;
     display: inline-table;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -128,6 +130,8 @@ body {
     text-align: center;
 }
 
+
+
 #finish-container button{
     font-size: 1.5rem;
     border: 1px solid white;
@@ -135,6 +139,5 @@ body {
     letter-spacing: 4px;
     background-color: #b2daea;
     border-radius: 5px;
-    width: 200px;
     margin: 5%;
 }

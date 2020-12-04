@@ -15,7 +15,6 @@ const progress = document.querySelector("#progress");
 const qImg = document.createElement("img");
 const answerButtons = document.getElementById("answer-buttons");
 const championList = document.querySelector('#score-container ol');
-// const logOutButton = document.querySelector("#log-out");
 const mainMenu = document.querySelector("#main-page");
 const buttons = document.querySelector('#buttons');
 const progressContainer = document.querySelector('#progress-container');
@@ -76,11 +75,12 @@ mainMenu.addEventListener('click', function(){
 startButton.addEventListener('click', handleClick);
 mainMenu.addEventListener('click', logOut);
 registerButton.addEventListener('click', logOut);
-startAgainButton.addEventListener('click',handleClick)
+startAgainButton.addEventListener('click', function() {
+    window.location.href = "gamePage.html"
+})
 
 
 function handleClick(){
-    // console.log(buttons)
     buttons.style.display = 'none';
     fihishContainer.style.display = 'none';
     if (localStorage.token === undefined ) {
@@ -103,7 +103,6 @@ function getScoreInfo () {
     .then(users => displayUsersInfo(users["user"]))
 }
 
-
 function displayUsersInfo(users){
     let size = 10
     const buttonMore = document.createElement('button')
@@ -115,6 +114,13 @@ function displayUsersInfo(users){
     let cutUsers = users.slice(0, size)
 
     cutUsers.map(user => {
+        if (user.id === localStorage.getItem("user_id")) {
+            const usersScore = document.createElement('li')
+            usersScore.textContent = user.username + ": " + user.score + "👑"
+            usersScore.style.color = 'purple'
+            usersScore.style.height = '100px'
+            championList.appendChild(usersScore)
+        }
         const usersScore = document.createElement('li')
         usersScore.textContent = user.username + ": " + user.score
         championList.appendChild(usersScore)
@@ -124,6 +130,13 @@ function displayUsersInfo(users){
         const userOl = document.createElement('ol')
         document.querySelector('#score-container').append(userOl)
         users.map(user => {
+            if (user.id == localStorage.getItem("user_id")) {
+                const usersScore = document.createElement('li')
+                usersScore.style.color = 'red'
+                usersScore.textContent = user.username + ": " + user.score + "👑"
+                console.log(usersScore)
+                championList.appendChild(usersScore)
+            }
             const usersScore = document.createElement('li')
             usersScore.textContent = user.username + ": " + user.score
             userOl.appendChild(usersScore)
@@ -143,7 +156,6 @@ function getQuestions_free_02() {
         .then(parseJSON)
         .then(questions => displayQuestion(questions["question"]))
 }
-
 
 function getQuestions2() {
     return fetch(questions2Url, {
@@ -228,6 +240,7 @@ function answerIsWrong() {
     document.querySelector("#progress").style.display = 'none'
     document.querySelector("#countdown").style.display = 'none'
     fihishContainer.style.display = 'block'
+    console.log(yourScore)
     yourScore.textContent = "Congrats! Your score is:" + score
     getScoreInfo()
 }
