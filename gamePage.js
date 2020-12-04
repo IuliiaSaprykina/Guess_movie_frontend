@@ -20,8 +20,10 @@ const mainMenu = document.querySelector("#main-page");
 const buttons = document.querySelector('#buttons');
 const progressContainer = document.querySelector('#progress-container');
 const yourScore = document.querySelector('.your-score')
-const startingMinutes = 1;
 let counterTimer = document.getElementById("countdown")
+const registerButton = document.querySelector('#register')
+const startAgainButton = document.querySelector('#start-again')
+const startingMinutes = 1;
 let runningQuestionT = 0;
 let score = 0;
 let q = "";
@@ -31,6 +33,7 @@ let time = startingMinutes * 60;
 
 
 function timerStart() {
+    resetTimer()
     setInterval(timer, 1000)
     
     function timer() {
@@ -49,6 +52,9 @@ function timerStart() {
     }
 }
 
+function resetTimer() {
+    timer = 60 * 5;
+  }
 // isLogIn()
 
 
@@ -56,6 +62,7 @@ function isLogIn() {
     if (localStorage.token === undefined ) {
         window.location.href = "./"
     } 
+    window.location.href = "./"
 }
 
 function logOut() {
@@ -67,12 +74,15 @@ mainMenu.addEventListener('click', function(){
     window.location.href = "index.html"
 });
 startButton.addEventListener('click', handleClick);
-mainMenu.addEventListener('click', logOut)
+mainMenu.addEventListener('click', logOut);
+registerButton.addEventListener('click', logOut);
+startAgainButton.addEventListener('click',handleClick)
 
 
 function handleClick(){
     // console.log(buttons)
-    buttons.style.display = 'none'
+    buttons.style.display = 'none';
+    fihishContainer.style.display = 'none';
     if (localStorage.token === undefined ) {
         getQuestions_free();
         startGame();
@@ -93,17 +103,6 @@ function getScoreInfo () {
     .then(users => displayUsersInfo(users["user"]))
 }
 
-function displayAllUsersInfo(users){
-    users.sort((a, b) => {
-        return b.score - a.score
-    })
-
-    users.map(user => {
-        const usersScore = document.createElement('li')
-        usersScore.textContent = user.username + ": " + user.score
-        championList.appendChild(usersScore)
-    })
-}
 
 function displayUsersInfo(users){
     let size = 10
@@ -121,11 +120,15 @@ function displayUsersInfo(users){
         championList.appendChild(usersScore)
     })
     buttonMore.addEventListener('click', function() {
+        document.querySelector('#score-container').removeChild(championList)
+        const userOl = document.createElement('ol')
+        document.querySelector('#score-container').append(userOl)
         users.map(user => {
             const usersScore = document.createElement('li')
             usersScore.textContent = user.username + ": " + user.score
-            championList.appendChild(usersScore)
+            userOl.appendChild(usersScore)
         })
+        buttonMore.style.display = 'none'
     })
 }
 
@@ -181,8 +184,10 @@ function displayQuestion(questions) {
 }
 
 function startGame() {
-    startButton.classList.add('hide');
-    questionContainerElement.classList.remove('hide');
+    startButton.style.display = 'none'
+    questionContainerElement.style.display = 'block'
+    document.querySelector("#progress").style.display = 'block'
+    document.querySelector("#countdown").style.display = 'block'
     progress.textContent = "Your score is " + score
 }
 
@@ -219,18 +224,12 @@ function checkAnswer(event, q, questions, runningQuestion){
 }
 
 function answerIsWrong() {
-    // startButton.classList.remove('hide');
-    questionContainerElement.classList.add('hide');
+    questionContainerElement.style.display = 'none'
     document.querySelector("#progress").style.display = 'none'
     document.querySelector("#countdown").style.display = 'none'
-    // buttons.style.display = 'block';
+    fihishContainer.style.display = 'block'
     yourScore.textContent = "Congrats! Your score is:" + score
-    fihishContainer.classList.remove('hide');
-    // console.log(score)
     getScoreInfo()
-    // championList.style.display = 'block'
-    // fihishContainer.classList.remove('hide');
-    // location.reload();
 }
 
 function renderProgress(){

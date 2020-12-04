@@ -16,7 +16,7 @@ body {
 .movie-img img{
     margin-top: 5%;
     background-color: #b2daea;
-    min-width: 350px;
+    min-width: 300px;
     max-height: auto;
     max-width: 60%;
     border-radius: 5px;
@@ -59,10 +59,10 @@ body {
     
 }
 
-#progress-container{
+/* #progress-container{
     position: fixed;
     left: 50%;
-}
+} */
 
 #countdown{
     text-align: center;
@@ -97,7 +97,7 @@ body {
   }
 
 #buttons{
-    display: flex;
+    /* display: flex; */
     list-style-type: none;
     flex-flow: row wrap;
     width: 100%;
@@ -120,4 +120,21 @@ body {
     display: inline;
     margin: auto;
     display: inline-table;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#finish-container{
+    text-align: center;
+}
+
+#finish-container button{
+    font-size: 1.5rem;
+    border: 1px solid white;
+    padding: 10px 40px;
+    letter-spacing: 4px;
+    background-color: #b2daea;
+    border-radius: 5px;
+    width: 200px;
+    margin: 5%;
 }
