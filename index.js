@@ -9,8 +9,8 @@ const loginButton = document.querySelector(".login-button");
 const playButton = document.querySelector(".play-button")
 const playButton1 = document.querySelector(".play-button1")
     
-const usersUrl = "http://localhost:3000/users/";
-const loginUrl = "http://localhost:3000/login/";
+const usersUrl = "http://localhost:4000/users/";
+const loginUrl = "http://localhost:4000/login/";
 
 
 welcome();
@@ -56,7 +56,8 @@ loginForm.addEventListener('submit', (event) => {
     fetch(loginUrl, {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
         },
         body: JSON.stringify(loginUser)
     })
@@ -99,7 +100,8 @@ newUserForm.addEventListener('submit', (event) => {
         fetch(usersUrl, {
             method: "POST",
             headers: {
-                'Content-type': "application/json"
+                'Content-type': "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify(newUser)
         })
@@ -114,11 +116,10 @@ newUserForm.addEventListener('submit', (event) => {
             window.location.href = "./gamePage.html"
         })
         .catch(error => {
+            console.error(error)
             inputNewUserForm.textContent = ""
             $userError.textContent = "Please choose another username"
         })
     }
 })
-
-
 // })

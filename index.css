@@ -102,9 +102,8 @@ button{
 }
 
 .login-error{
-  font-size: 30px;
+  font-size: 15px;
   color: #fff6f6;
-  padding: 10px 40px;
   letter-spacing: 4px;
   position: relative;
   margin: 5px;
@@ -112,9 +111,8 @@ button{
 }
 
 .user-error{
-  font-size: 30px;
+  font-size: 15px;
   color: #fff6f6;
-  padding: 10px 40px;
   letter-spacing: 4px;
   position: relative;
   margin: 5px;

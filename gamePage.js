@@ -1,11 +1,11 @@
 const startButton = document.querySelector('#fantasy');
 const fihishContainer = document.querySelector('#finish-container')
 const questionContainerElement = document.getElementById('question-container')
-const questionsUrl = "http://localhost:3000/questions/";
-const questions2Url = "http://localhost:3000/questions_02/";
-const questionsUrlFree = "http://localhost:3000/questions_free/";
-const questionsUrlFree_02 = "http://localhost:3000/questions_free_02/";
-const usersUrl = "http://localhost:3000/users/";
+const questionsUrl = "http://localhost:4000/questions/";
+const questions2Url = "http://localhost:4000/questions_02/";
+const questionsUrlFree = "http://localhost:4000/questions_free/";
+const questionsUrlFree_02 = "http://localhost:4000/questions_free_02/";
+const usersUrl = "http://localhost:4000/users/";
 const imgContainer = document.querySelector(".movie-img");
 const choiceA = document.querySelector(".btn-a");
 const choiceB = document.querySelector(".btn-b");
@@ -84,10 +84,12 @@ function handleClick(){
     buttons.style.display = 'none';
     fihishContainer.style.display = 'none';
     if (localStorage.token === undefined ) {
+        console.log("There is no token ")
         getQuestions_free();
         startGame();
         timerStart()
     } else {
+        console.log("There is token")
         getQuestions();
         startGame();
         timerStart()
@@ -146,6 +148,7 @@ function displayUsersInfo(users){
 }
 
 function getQuestions_free() {
+    console.log("There is free questions")
     return fetch(questionsUrlFree)
         .then(parseJSON)
         .then(questions => displayQuestion(questions["question"]))
@@ -240,7 +243,9 @@ function answerIsWrong() {
     document.querySelector("#progress").style.display = 'none'
     document.querySelector("#countdown").style.display = 'none'
     fihishContainer.style.display = 'block'
-    console.log(yourScore)
+    if (localStorage.token != undefined ) {
+        registerButton.style.display = 'none'
+    }
     yourScore.textContent = "Congrats! Your score is:" + score
     getScoreInfo()
 }
@@ -273,8 +278,5 @@ function renderProgress(){
        
     }
 }
-
-
-
 
 
